@@ -1,6 +1,12 @@
-module.exports = ({ name, time, diff, level, data }) =>
-  console.error(
-    `${new Date(time).toISOString()} ${name} ${level} ${data
+const { styledLevels, coloredByName } = require("./utils");
+
+const stderr = process.stderr;
+module.exports = ({ name, diff, level, data }) => {
+  const colored = coloredByName(name);
+
+  stderr.write(
+    `${styledLevels[level]} [${colored(name)}] ${data
       .map(JSON.stringify)
-      .join(" ")} +${diff}ms`
+      .join(" ")} ${colored(`+${diff}ms`)}\n`
   );
+};

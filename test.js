@@ -3,6 +3,7 @@ otherLog("should not be displayed");
 otherLog.error("should be displayed");
 
 const log = require(".")("apinfor").sub("server");
+log.write = require("./writers/stdErrHuman");
 
 log.info("Start");
 log.debug("should not be displayed");

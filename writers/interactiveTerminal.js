@@ -1,23 +1,7 @@
-const chalk = require("chalk");
-var randomColor = require("randomcolor");
+const { styledLevels, coloredByName } = require("./utils");
 
-const styledLevels = {
-  debug: "DEBUG",
-  info: chalk.green("INFO"),
-  warn: chalk.bold.yellow("WARN"),
-  error: chalk.bold.red("ERROR")
-};
-const nameToColor = new Map();
-const coloredName = name => {
-  let color = nameToColor.get(name);
-  if (color) return color;
-  color = randomColor();
-  nameToColor.set(name, color);
-  return color;
-};
-
-module.exports = ({ name, time, diff, level, data }) => {
-  const colored = chalk.hex(coloredName(name));
+module.exports = ({ name, diff, level, data }) => {
+  const colored = coloredByName(name);
   console.error(
     // new Date(time).toISOString(),
     styledLevels[level],
