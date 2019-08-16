@@ -1,5 +1,5 @@
-const chalk = require("chalk");
-var randomColor = require("randomcolor");
+const chalk = require("ansi-colors");
+const colors = ["blue", "cyan", "magenta", "green", "yellow", "gray"];
 
 exports.styledLevels = {
   debug: "DEBUG",
@@ -9,12 +9,16 @@ exports.styledLevels = {
 };
 
 const nameToColorMap = new Map();
+let colorIndex = 0;
 exports.nameToColor = name => {
   let color = nameToColorMap.get(name);
   if (color) return color;
-  color = randomColor();
+  color = colors[colorIndex];
+  colorIndex++;
+  colorIndex = colorIndex % colors.length;
   nameToColorMap.set(name, color);
   return color;
 };
 
-exports.coloredByName = name => chalk.hex(exports.nameToColor(name));
+exports.coloredByName = name => chalk[exports.nameToColor(name)];
+// exports.coloredByName = name => chalk.blue;
