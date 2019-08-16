@@ -1,5 +1,5 @@
 const chalk = require("ansi-colors");
-const colors = ["blue", "cyan", "magenta", "green", "yellow", "gray"];
+const colors = ["cyan", "magenta", "blue", "green", "yellow", "gray"];
 
 exports.styledLevels = {
   debug: "DEBUG",

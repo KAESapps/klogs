@@ -4,7 +4,7 @@ const levels = ["debug", "info", "warn", "error"];
 const NODE_ENV = process.env.NODE_ENV;
 const isDev = !NODE_ENV || NODE_ENV === "dev" || NODE_ENV === "development";
 const write = isDev
-  ? require("./writers/interactiveTerminal")
+  ? require("./writers/console")
   : require("./writers/stdErrJson");
 
 const isEnabledForLevel = require("./enabled");

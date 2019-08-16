@@ -10,13 +10,13 @@
       "request": "launch",
       "program": "${workspaceFolder}\\test.js",
       "outputCapture": "std",
-      "console": "integratedTerminal",
+      "console": "internalConsole",
       "internalConsoleOptions": "neverOpen",
       "env": {
         "NODE_ENV": "dev",
         "WARN": "*",
         "INFO": "apinfor:*",
-        "DEBUG": "apinfor:server:sync",
+        "DEBUG": "apinfor:server:sync:*",
       }
     }
   ]
