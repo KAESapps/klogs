@@ -1,0 +1,23 @@
+{
+  "name": "klogs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "keywords": [
+    "debug",
+    "log",
+    "levels",
+    "json"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "2.4.2",
+    "debug-level": "0.3.0",
+    "json-log": "3.0.1",
+    "randomcolor": "0.5.4"
+  }
+}
