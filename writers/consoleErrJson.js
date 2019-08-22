@@ -4,5 +4,20 @@ destiné aux environnements non interactifs (non dev) où le but est de stocker 
 const AbcStringify = require("abc-stringify");
 const ss = new AbcStringify();
 
-module.exports = ({ name, time, diff, level, data }) =>
-  console.error(ss.stringify({ name, level, data }) + "\n");
+module.exports = ({ name, time, diff, level, data: logs }) => {
+  let messages = [];
+  let data;
+  let error;
+  logs.forEach(log => {
+    // concatène toutes les strings dans "message"
+    if (typeof log === "string") return messages.push(log);
+    // affecte la première erreur à error
+    if (!error && log instanceof Error) return (error = log);
+    // flatten tous les objets dans data
+    data = Object.assign(data || {}, log);
+  });
+  console.error(
+    ss.stringify({ name, level, message: messages.join(" | "), error, data }) +
+      "\n"
+  );
+};
