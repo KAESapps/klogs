@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "abc-stringify": "0.0.2",
+    "abc-stringify": "0.0.3",
     "ansi-colors": "4.1.1"
   }
 }
