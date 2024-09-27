@@ -59,9 +59,3 @@ Dont' forget to activate the namespace "myApp" via
 ```
 INFO=myApp node myCustomLog.js
 ```
-
-# TODO
-
-- specific writer for the browser (with devTool)
-- use localStorage for config in the browser (as debug do)
-- better tests

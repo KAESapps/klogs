@@ -5,12 +5,12 @@ exports.styledLevels = {
   debug: "DEBUG",
   info: chalk.green("INFO"),
   warn: chalk.bold.yellow("WARN"),
-  error: chalk.bold.red("ERROR")
+  error: chalk.bold.red("ERROR"),
 };
 
 const nameToColorMap = new Map();
 let colorIndex = 0;
-exports.nameToColor = name => {
+exports.nameToColor = (name) => {
   let color = nameToColorMap.get(name);
   if (color) return color;
   color = colors[colorIndex];
@@ -20,5 +20,4 @@ exports.nameToColor = name => {
   return color;
 };
 
-exports.coloredByName = name => chalk[exports.nameToColor(name)];
-// exports.coloredByName = name => chalk.blue;
+exports.coloredByName = (name) => chalk[exports.nameToColor(name)];
