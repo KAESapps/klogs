@@ -8,12 +8,12 @@ module.exports = ({ name, time, diff, level, data: logs }) => {
   let messages = [];
   let data;
   let error;
-  logs.forEach(log => {
+  logs.forEach((log) => {
     // concatène toutes les strings dans "message"
     if (typeof log === "string") return messages.push(log);
     // affecte la première erreur à error
-    if (!error && log instanceof Error) return (error = log);
-    // flatten tous les objets dans data
+    if (!error && log instanceof Error) error = log;
+    // flatten tous les objets dans data (y compris les erreurs pour avoir les meta données)
     data = Object.assign(data || {}, log);
   });
   console.error(
